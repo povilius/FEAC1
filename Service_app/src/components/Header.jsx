@@ -1,28 +1,44 @@
-import { Link } from 'react-router-dom';
-import Button from './Button';
-import styles from './Header.module.scss';
+import { useNavigate, Link } from 'react-router-dom';
+import { ROUTES } from '@/router/consts';
+import Button from '@/components/Button';
+import styles from '@/components/Header.module.scss';
+import Logo from '@/assets/logo.svg';
 
 const Header = () => {
+  const navigate = useNavigate();
+
+  const links = [
+    {
+      href: ROUTES.HOME,
+      label: 'Home',
+    },
+    {
+      href: ROUTES.SERVICES,
+      label: 'Services',
+    },
+    {
+      href: ROUTES.ABOUTUS,
+      label: 'About Us',
+    },
+  ];
   return (
-    <div className={styles.topbar}>
+    <header className={styles.header}>
       <div className={styles.leftSide}>
-        <img src="../public/logo.svg" alt="Logo" />
-        <div className={styles.navigation}>
-          <Link to="/" className={styles.link}>
-            Home
-          </Link>
-          <Link to="/services" className={styles.link}>
-            Services
-          </Link>
-          <Link to="/aboutus" className={styles.link}>
-            About Us
-          </Link>
-        </div>
+        <Link to={ROUTES.HOME}>
+          <img src={Logo} alt="logo" />
+        </Link>
+        <nav className={styles.navigation}>
+          {links.map(link => (
+            <Link key={link.label} to={link.href} className={styles.link}>
+              {link.label}
+            </Link>
+          ))}
+        </nav>
       </div>
       <div className={styles.rightSide}>
-        <Button>Login / Sign Up</Button>
+        <Button onClick={() => navigate(ROUTES.LOGIN)}>Login / Sign Up</Button>
       </div>
-    </div>
+    </header>
   );
 };
 
