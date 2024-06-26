@@ -1,6 +1,6 @@
 import { useNavigate, generatePath, useParams } from 'react-router-dom';
 import classNames from 'classnames';
-import UrlIcon from '../common/UrlIcon';
+import UrlIcon from '@/components/common/UrlIcon';
 import { ROUTES } from '@/router/consts';
 import styles from './CategoryCard.module.scss';
 import PropTypes from 'prop-types';
@@ -30,9 +30,12 @@ const CategoryCard = ({ category }) => {
   );
 };
 
-export default CategoryCard;
-
 CategoryCard.propTypes = {
-  name: PropTypes.array,
-  category: PropTypes.array,
+  category: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+    color: PropTypes.string,
+  }).isRequired,
 };
+
+export default CategoryCard;

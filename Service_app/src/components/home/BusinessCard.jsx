@@ -1,33 +1,40 @@
 import Button from '@/components/Button';
 import styles from './BusinessCard.module.scss';
-// import * as businesses from '@/consts/business';
 import PropTypes from 'prop-types';
-// import { businesses } from '@/consts/business';
 
-const BusinessCard = ({ businesses }) => {
+const BusinessCard = ({ business }) => {
   return (
     <div className={styles.card}>
-      {businesses.images.length && (
+      {business.images.length > 0 && (
         <img
-          src={businesses.images[0].url}
-          alt={businesses.name}
+          src={business.images[0].url}
+          alt={business.name}
           className={styles.image}
         />
       )}
       <div className={styles.infoContainer}>
-        <span className={styles.chip}>{businesses.category}</span>
-        <h3 className={styles.name}>{businesses.name}</h3>
-        <p className={styles.contactPerson}>{businesses.contactPerson}</p>
-        <p className={styles.address}>{businesses.address}</p>
+        <span className={styles.chip}>{business.category}</span>
+        <h3 className={styles.name}>{business.name}</h3>
+        <p className={styles.contactPerson}>{business.contactPerson}</p>
+        <p className={styles.address}>{business.address}</p>
         <Button>Book now</Button>
       </div>
     </div>
   );
 };
 
-export default BusinessCard;
-
 BusinessCard.propTypes = {
-  category: PropTypes.string,
-  businesses: PropTypes.array,
+  business: PropTypes.shape({
+    images: PropTypes.arrayOf(
+      PropTypes.shape({
+        url: PropTypes.string.isRequired,
+      })
+    ).isRequired,
+    category: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    contactPerson: PropTypes.string.isRequired,
+    address: PropTypes.string.isRequired,
+  }).isRequired,
 };
+
+export default BusinessCard;
