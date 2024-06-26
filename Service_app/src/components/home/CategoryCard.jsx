@@ -6,6 +6,7 @@ import styles from './CategoryCard.module.scss';
 import PropTypes from 'prop-types';
 
 const CategoryCard = ({ category }) => {
+  console.log(category);
   const params = useParams();
   const { name } = category;
   const navigate = useNavigate();
