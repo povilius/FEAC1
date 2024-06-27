@@ -1,5 +1,4 @@
 import { useNavigate, generatePath } from 'react-router-dom';
-// import classNames from 'classnames';
 import UrlIcon from '@/components/common/UrlIcon';
 import { ROUTES } from '@/router/consts';
 import styles from './CategoryCard.module.scss';
