@@ -4,4 +4,5 @@ export const ROUTES = {
   ABOUTUS: '/aboutus',
   LOGIN: '/login',
   SEARCH_CATEGORY: '/search/:category',
+  REGISTER: '/register',
 };

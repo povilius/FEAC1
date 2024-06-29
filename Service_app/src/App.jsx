@@ -9,6 +9,8 @@ import ErrorPage from './pages/ErrorPage';
 import RootLayout from './components/layout/RootLayout';
 import Login from './pages/Login';
 import SearchCategory from './pages/SearchCategory';
+import Register from './pages/Register';
+import { UserProvider } from './context/UserContext';
 
 const router = createBrowserRouter([
   {
@@ -35,12 +37,20 @@ const router = createBrowserRouter([
         path: ROUTES.SEARCH_CATEGORY,
         element: <SearchCategory />,
       },
+      {
+        path: ROUTES.REGISTER,
+        element: <Register />,
+      },
     ],
   },
 ]);
 
 const App = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <UserProvider>
+      <RouterProvider router={router} />
+    </UserProvider>
+  );
 };
 
 export default App;

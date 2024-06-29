@@ -1,10 +1,14 @@
 import { useNavigate, Link } from 'react-router-dom';
 import { ROUTES } from '@/router/consts';
+import { useContext } from 'react';
+import { UserContext } from '@/context/UserContext';
+import Avatar from '@/components/common/Avatar';
 import Button from '@/components/Button';
 import styles from '@/components/Header.module.scss';
 import Logo from '@/assets/logo.svg';
 
 const Header = () => {
+  const { user } = useContext(UserContext);
   const navigate = useNavigate();
 
   const links = [
@@ -36,7 +40,13 @@ const Header = () => {
         </nav>
       </div>
       <div className={styles.rightSide}>
-        <Button onClick={() => navigate(ROUTES.LOGIN)}>Login / Sign Up</Button>
+        {user ? (
+          <Avatar>{user.email[0]}</Avatar>
+        ) : (
+          <Button onClick={() => navigate(ROUTES.LOGIN)} large>
+            Login / Sign Up
+          </Button>
+        )}
       </div>
     </header>
   );

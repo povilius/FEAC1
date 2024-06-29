@@ -1,16 +1,16 @@
-import Header from '../Header';
 import { Outlet } from 'react-router-dom';
+import Header from '@/components/Header';
 import styles from './Layout.module.scss';
 
-const RootLayout = () => {
+const AuthLayout = () => {
   return (
     <>
       <Header />
-      <div className={styles.rootContainer}>
+      <div className={styles.authContainer}>
         <Outlet />
       </div>
     </>
   );
 };
 
-export default RootLayout;
+export default AuthLayout;
