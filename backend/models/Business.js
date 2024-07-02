@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const businessSchema = new mongoose.Schema({
   name: {
@@ -7,7 +7,7 @@ const businessSchema = new mongoose.Schema({
   },
   about: {
     type: String,
-    default: "",
+    default: '',
   },
   address: {
     type: String,
@@ -28,7 +28,7 @@ const businessSchema = new mongoose.Schema({
       validator: function (email) {
         return /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email);
       },
-      message: "Invalid email format",
+      message: 'Invalid email format',
     },
   },
   images: [
@@ -41,4 +41,4 @@ const businessSchema = new mongoose.Schema({
   ],
 });
 
-module.exports = mongoose.model("Business", businessSchema);
+module.exports = mongoose.model('Business', businessSchema);
