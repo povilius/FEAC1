@@ -5,13 +5,7 @@ import PropTypes from 'prop-types';
 const BusinessCard = ({ business }) => {
   return (
     <div className={styles.card}>
-      {business.images.length > 0 && (
-        <img
-          src={business.images[0].url}
-          alt={business.name}
-          className={styles.image}
-        />
-      )}
+      {business.images.length > 0 && <img src={business.images[0].url} alt={business.name} className={styles.image} />}
       <div className={styles.infoContainer}>
         <span className={styles.chip}>{business.category}</span>
         <h3 className={styles.name}>{business.name}</h3>
@@ -28,7 +22,7 @@ BusinessCard.propTypes = {
     images: PropTypes.arrayOf(
       PropTypes.shape({
         url: PropTypes.string.isRequired,
-      })
+      }),
     ).isRequired,
     category: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,

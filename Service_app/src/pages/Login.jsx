@@ -18,9 +18,7 @@ const Login = () => {
 
           if (!values.email) {
             errors.email = 'Email is required';
-          } else if (
-            !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-          ) {
+          } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
             errors.email = 'Invalid format';
           }
           if (!values.password) errors.password = 'Password is required';
@@ -33,12 +31,7 @@ const Login = () => {
             <h2 className={styles.title}>Login</h2>
 
             <div>
-              <Field
-                type="email"
-                name="email"
-                placeholder="Email"
-                className={styles.input}
-              />
+              <Field type="email" name="email" placeholder="Email" className={styles.input} />
 
               <div>
                 <ErrorMessage name="email" />
@@ -46,12 +39,7 @@ const Login = () => {
             </div>
 
             <div>
-              <Field
-                type="password"
-                name="password"
-                placeholder="Password"
-                className={styles.input}
-              />
+              <Field type="password" name="password" placeholder="Password" className={styles.input} />
               <div>
                 <ErrorMessage name="password" />
               </div>

@@ -24,20 +24,13 @@ const Register = () => {
           if (!values.name) errors.name = requiredField;
           if (!values.email) {
             errors.email = requiredField;
-          } else if (
-            !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-          ) {
+          } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
             errors.email = 'Invalid format';
           }
           if (!values.password) {
             errors.password = requiredField;
-          } else if (
-            !/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/.test(
-              values.password
-            )
-          ) {
-            errors.password =
-              'The password must contain at least one number, uppercase letter, and symbol';
+          } else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/.test(values.password)) {
+            errors.password = 'The password must contain at least one number, uppercase letter, and symbol';
           }
 
           return errors;
@@ -47,36 +40,21 @@ const Register = () => {
           <Form>
             <h2 className={styles.title}>Register</h2>
             <div>
-              <Field
-                type="text"
-                name="name"
-                placeholder="Name"
-                className={styles.input}
-              />
+              <Field type="text" name="name" placeholder="Name" className={styles.input} />
               <div>
                 <ErrorMessage name="name" />
               </div>
             </div>
 
             <div>
-              <Field
-                type="email"
-                name="email"
-                placeholder="Email"
-                className={styles.input}
-              />
+              <Field type="email" name="email" placeholder="Email" className={styles.input} />
               <div>
                 <ErrorMessage name="email" />
               </div>
             </div>
 
             <div>
-              <Field
-                type="password"
-                name="password"
-                placeholder="Password"
-                className={styles.input}
-              />
+              <Field type="password" name="password" placeholder="Password" className={styles.input} />
               <div>
                 <ErrorMessage name="password" />
               </div>

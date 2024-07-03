@@ -10,7 +10,7 @@ const Button = ({ className, rounded, small, large, ...props }) => {
         rounded && styles.rounded,
         small && styles.small,
         large && styles.large,
-        className
+        className,
       )}
       {...props}
     />

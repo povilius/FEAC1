@@ -11,9 +11,7 @@ const Hero = () => {
         <br />
         Near You
       </h1>
-      <p className={styles.subtitle}>
-        Explore Best Home Service & Repair near you
-      </p>
+      <p className={styles.subtitle}>Explore Best Home Service & Repair near you</p>
       <div className={styles.searchContainer}>
         <SearchInput />
         <Button rounded>

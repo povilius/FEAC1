@@ -17,9 +17,7 @@ router.post('/', async (req, res) => {
     await newCategory.save();
     res.status(201).json(newCategory);
   } catch (err) {
-    res
-      .status(400)
-      .json({ message: 'Error creating booking', error: err?.message ?? err });
+    res.status(400).json({ message: 'Error creating booking', error: err?.message ?? err });
   }
 });
 

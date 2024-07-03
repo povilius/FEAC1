@@ -12,10 +12,7 @@ const CategoryCard = ({ category }) => {
 
   return (
     <div className={styles.card} onClick={() => navigate(categoryPath)}>
-      <UrlIcon
-        url={category.url}
-        style={{ width: 48, height: 48, backgroundColor: category.color }}
-      />
+      <UrlIcon url={category.url} style={{ width: 48, height: 48, backgroundColor: category.color }} />
       <p className={styles.name}>{name}</p>
     </div>
   );

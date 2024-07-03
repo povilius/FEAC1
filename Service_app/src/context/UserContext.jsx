@@ -10,11 +10,7 @@ const UserProvider = ({ children }) => {
   const login = user => setUser(user);
   const logout = () => setUser(null);
 
-  return (
-    <UserContext.Provider value={{ user, login, logout }}>
-      {children}
-    </UserContext.Provider>
-  );
+  return <UserContext.Provider value={{ user, login, logout }}>{children}</UserContext.Provider>;
 };
 
 UserProvider.propTypes = {

@@ -5,9 +5,7 @@ import styles from './BusinessList.module.scss';
 import PropTypes from 'prop-types';
 
 const BusinessList = ({ category, className }) => {
-  const filteredBusiness = category
-    ? businesses.filter(businesses => businesses.category === category)
-    : businesses;
+  const filteredBusiness = category ? businesses.filter(businesses => businesses.category === category) : businesses;
 
   return (
     <div className={classNames(styles.container, className)}>

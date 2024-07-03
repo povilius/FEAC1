@@ -1,5 +1,7 @@
 .searchInput {
-  transition: box-shadow 100ms ease-in, border 100ms ease-in,
+  transition:
+    box-shadow 100ms ease-in,
+    border 100ms ease-in,
     background-color 100ms ease-in;
   color: rgb(14, 14, 16);
   padding: 1rem;
@@ -18,7 +20,9 @@
   border-radius: 6px;
   line-height: 1.5;
   padding: 5px 10px;
-  transition: box-shadow 100ms ease-in, border 100ms ease-in,
+  transition:
+    box-shadow 100ms ease-in,
+    border 100ms ease-in,
     background-color 100ms ease-in;
   border: 2px solid #dee1e2;
   color: rgb(14, 14, 16);
