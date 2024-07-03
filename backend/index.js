@@ -8,6 +8,7 @@ const authRoutes = require('./routes/authRoutes');
 const categoryRoutes = require('./routes/categoryRoutes');
 const businessRoutes = require('./routes/businessRoutes');
 const bookingRoutes = require('./routes/bookingRoutes');
+const userRoutes = require('./routes/userRoutes');
 
 const { connectToDb, PORT } = require('./db');
 
@@ -15,6 +16,7 @@ app.use('/auth', authRoutes);
 app.use('/categories', categoryRoutes);
 app.use('/businesses', businessRoutes);
 app.use('/bookings', bookingRoutes);
+app.use('/users', userRoutes);
 
 connectToDb()
   .then(() => {
