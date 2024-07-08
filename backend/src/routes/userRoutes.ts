@@ -1,13 +1,13 @@
-const express = require('express');
-const User = require('../models/User');
-const authMiddleware = require('../middlewares/authMiddleware');
+import express, { Request, Response } from 'express';
+import User from '../models/User';
+import authMiddleware from '../middlewares/authMiddleware';
 
 const router = express.Router();
 
 // Retrieve all users
-router.get('/', authMiddleware, async (req, res) => {
+router.get('/', authMiddleware, async (req: Request, res: Response) => {
   try {
-    console.log('from users', req.currentUser);
+    console.log('from users', (req as any).currentUser);
 
     const users = await User.find();
     return res.json(users);
@@ -17,7 +17,7 @@ router.get('/', authMiddleware, async (req, res) => {
 });
 
 // Update a user by ID
-router.put('/:id', async (req, res) => {
+router.put('/:id', async (req: Request, res: Response) => {
   try {
     const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
@@ -32,7 +32,7 @@ router.put('/:id', async (req, res) => {
 });
 
 // Delete a user by ID
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', async (req: Request, res: Response) => {
   try {
     const deletedUser = await User.findByIdAndDelete(req.params.id);
     if (!deletedUser) {
@@ -44,4 +44,4 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
